@@ -1,248 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Web Datetime Year Patch</title>
-    <style>
-      :root {
-        --bg: #f6f7fb;
-        --surface: #ffffff;
-        --text: #1f2937;
-        --muted: #5b6472;
-        --accent: #2563eb;
-        --accent-soft: #dbeafe;
-        --border: #d8dee9;
-        --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
-        color: var(--text);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-          Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-      }
-
-      .container {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 48px 20px 56px;
-      }
-
-      .hero {
-        background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 36%),
-          linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 36px;
-        box-shadow: var(--shadow);
-      }
-
-      .eyebrow {
-        display: inline-block;
-        padding: 6px 12px;
-        margin-bottom: 16px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 0 0 14px;
-        font-size: clamp(2rem, 4vw, 3.1rem);
-        line-height: 1.1;
-      }
-
-      .lead {
-        max-width: 760px;
-        margin: 0;
-        font-size: 1.08rem;
-        color: var(--muted);
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 20px;
-        margin-top: 24px;
-      }
-
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 24px;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-      }
-
-      .span-7 {
-        grid-column: span 7;
-      }
-
-      .span-5 {
-        grid-column: span 5;
-      }
-
-      .span-6 {
-        grid-column: span 6;
-      }
-
-      h2 {
-        margin: 0 0 14px;
-        font-size: 1.35rem;
-      }
-
-      p {
-        margin: 0 0 14px;
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 20px;
-      }
-
-      li {
-        margin: 0 0 10px;
-      }
-
-      .callout {
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.03));
-        border: 1px solid rgba(37, 99, 235, 0.16);
-        border-radius: 18px;
-        padding: 20px 22px;
-        color: var(--text);
-      }
-
-      .tag-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 8px;
-      }
-
-      .tag {
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: #eef2ff;
-        color: #1e3a8a;
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      .footer-note {
-        margin-top: 18px;
-        font-size: 0.95rem;
-        color: var(--muted);
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 24px 14px 36px;
-        }
-
-        .hero,
-        .card {
-          padding: 20px;
-          border-radius: 18px;
-        }
-
-        .span-7,
-        .span-5,
-        .span-6 {
-          grid-column: span 12;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <section class="hero">
-        <span class="eyebrow">Odoo Web Client Patch</span>
-        <h1>Keep the year visible in localized dates and datetimes</h1>
-        <p class="lead">
-          <strong>Web Datetime Year Patch</strong> is a lightweight Odoo 19.0 module that
-          makes the web client include the year whenever it formats localized dates or
-          datetimes. It helps prevent ambiguous display formats without changing your
-          data or requiring any configuration.
-        </p>
-      </section>
-
-      <div class="grid">
-        <section class="card span-7">
-          <h2>What it does</h2>
-          <p>
-            Odoo's web client relies on Luxon for localized date and datetime rendering.
-            In some locales and widget combinations, the year may be omitted from the
-            displayed value. This module patches the formatter at runtime so the year is
-            always present.
-          </p>
-          <ul>
-            <li>Ensures localized date and datetime strings include the year.</li>
-            <li>Applies in the backend web assets bundle only.</li>
-            <li>Leaves the original format object untouched by using a shallow copy.</li>
-          </ul>
-        </section>
-
-        <aside class="card span-5">
-          <h2>Highlights</h2>
-          <div class="tag-list">
-            <span class="tag">Odoo 19.0</span>
-            <span class="tag">Backend only</span>
-            <span class="tag">No setup required</span>
-            <span class="tag">Lightweight patch</span>
-            <span class="tag">No models</span>
-          </div>
-          <p class="footer-note">
-            The module depends only on <strong>web</strong> and is designed to be easy to
-            install, update, and maintain.
-          </p>
-        </aside>
-
-        <section class="card span-6">
-          <h2>How it works</h2>
-          <p>
-            The module overrides Luxon's <strong>DateTime.toLocaleString()</strong> in the
-            browser. If Odoo passes a format object without a year, the patch adds
-            <strong>year: 'numeric'</strong> before delegating back to the original
-            formatter.
-          </p>
-          <div class="callout">
-            This is a display-level fix only. It does not modify stored dates, business
-            logic, or server-side values.
-          </div>
-        </section>
-
-        <section class="card span-6">
-          <h2>Installation</h2>
-          <ul>
-            <li>Add the module to your Odoo addons path.</li>
-            <li>Update the app list.</li>
-            <li>Install <strong>Web datetime year patch</strong>.</li>
-          </ul>
-          <p class="footer-note">
-            Once installed, the patch is applied automatically in the backend.
-          </p>
-        </section>
-
-        <section class="card span-12">
-          <h2>Compatibility</h2>
-          <p>
-            This module is built for <strong>Odoo 19.0</strong> and targets the web client
-            only. It is intended for projects where keeping the year visible improves
-            clarity in record lists, forms, and date-related widgets.
-          </p>
-        </section>
-      </div>
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color: #2563eb; font-size: 2.2em; margin-bottom: 20px;">Keep the year visible in localized dates and datetimes</h2>
+        </div>
+        <div class="oe_span12">
+            <p style="font-size: 1.1em; color: #5b6472; margin-bottom: 30px; text-align: center;">
+                <strong>Web Datetime Year Patch</strong> is a lightweight Odoo 19.0 module that ensures the year is always included 
+                whenever the web client formats localized dates or datetimes. No configuration required.
+            </p>
+        </div>
     </div>
-  </body>
-</html>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #ffffff;">What it does</h3>
+        </div>
+        <div class="oe_span12">
+            <p style="color: #f6f7fb; text-align: center; margin-bottom: 20px;">
+                Odoo's web client relies on Luxon for localized date and datetime rendering. In some locales and widget combinations, 
+                the year may be omitted from the displayed value. This module patches the formatter at runtime so the year is always present.
+            </p>
+        </div>
+        <div class="oe_span4">
+            <div class="oe_feature" style="padding: 20px; text-align: center;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 10px;">Always Show Year</h4>
+                <p style="color: #f6f7fb;">Ensures localized date and datetime strings include the year in all formats.</p>
+            </div>
+        </div>
+        <div class="oe_span4">
+            <div class="oe_feature" style="padding: 20px; text-align: center;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 10px;">Backend Only</h4>
+                <p style="color: #f6f7fb;">Applies in the backend web assets bundle. No impact on user data or API.</p>
+            </div>
+        </div>
+        <div class="oe_span4">
+            <div class="oe_feature" style="padding: 20px; text-align: center;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 10px;">Safe & Clean</h4>
+                <p style="color: #f6f7fb;">Leaves original format objects untouched by using a shallow copy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 1.8em; margin-bottom: 30px;">How it works</h3>
+        </div>
+        <div class="oe_span12">
+            <p style="font-size: 1.05em; color: #1f2937; margin-bottom: 20px;">
+                The module overrides Luxon's <strong>DateTime.toLocaleString()</strong> in the browser. When Odoo passes a format object 
+                without a year, the patch adds <strong>year: 'numeric'</strong> before delegating back to the original formatter.
+            </p>
+            <div style="background: #dbeafe; border-left: 4px solid #2563eb; padding: 16px 20px; border-radius: 4px; margin: 20px 0;">
+                <p style="margin: 0; color: #1e3a8a;">
+                    <strong>Note:</strong> This is a display-level fix only. It does not modify stored dates, business logic, or server-side values.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #ffffff; font-size: 1.8em;">Key Features</h3>
+        </div>
+        <div class="oe_span6">
+            <h4 style="color: #2563eb; font-weight: 600; margin-top: 15px;">Installation</h4>
+            <ul style="color: #f6f7fb; line-height: 1.8;">
+                <li>Add the module to your Odoo addons path</li>
+                <li>Update the app list</li>
+                <li>Install <strong>Web datetime year patch</strong></li>
+                <li>The patch is applied automatically in the backend</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <h4 style="color: #2563eb; font-weight: 600; margin-top: 15px;">Requirements</h4>
+            <ul style="color: #f6f7fb; line-height: 1.8;">
+                <li><strong>Odoo 19.0</strong></li>
+                <li><strong>Web</strong> module (built-in)</li>
+                <li>No additional dependencies</li>
+                <li>No database migrations</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 1.8em; margin-bottom: 20px;">Technical Details</h3>
+        </div>
+        <div class="oe_span12 text-center">
+            <p style="font-size: 1.05em; color: #5b6472;">
+                The patch is implemented clean and minimal. It intercepts Luxon's formatter only when needed, 
+                ensuring no performance impact or side effects. Perfect for projects where keeping the year 
+                visible across all date displays improves clarity in record lists, forms, and reporting.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced text-center">
+        <div class="oe_span12">
+            <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 20px;">Questions or Need Help?</h3>
+            <p style="color: #f6f7fb; font-size: 1.05em; margin-bottom: 20px;">
+                Contact support or visit the author's website for more information.
+            </p>
+            <a href="mailto:sanjanatrishan@gmail.com" style="display: inline-block; padding: 12px 28px; background: #2563eb; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+                📧 Contact Support
+            </a>
+        </div>
+    </div>
+</section>
