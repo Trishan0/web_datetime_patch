@@ -1,48 +1,37 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h2 class="oe_slogan" style="color: #2563eb; font-size: 2.2em; margin-bottom: 20px;">Keep the year visible in localized dates and datetimes</h2>
+            <h2 class="oe_slogan" style="color: #2563eb; font-size: 28px; margin-bottom: 15px;">Keep the year visible in localized dates and datetimes</h2>
         </div>
         <div class="oe_span12">
-            <p style="font-size: 1.1em; color: #5b6472; margin-bottom: 30px; text-align: center;">
-                <strong>Web Datetime Year Patch</strong> is a lightweight Odoo 19.0 module that ensures the year is always included 
-                whenever the web client formats localized dates or datetimes. No configuration required.
+            <p style="font-size: 15px; color: #666; text-align: center; margin: 0;">
+                <strong>Web Datetime Year Patch</strong> is a lightweight Odoo 19.0 module that ensures the year is always included whenever the web client formats localized dates or datetimes. No configuration required.
             </p>
         </div>
     </div>
 </section>
 
-<section class="oe_container" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%); padding: 60px 0; margin: 40px 0;">
+<section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #ffffff; font-size: 2em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">✨ What it does</h3>
-            <div style="height: 3px; background: linear-gradient(90deg, #fbbf24, #ec4899); width: 80px; margin: 0 auto 30px;"></div>
-        </div>
-        <div class="oe_span12">
-            <p style="color: #ffffff; text-align: center; margin-bottom: 40px; font-size: 1.05em; line-height: 1.8;">
-                Odoo's web client relies on Luxon for localized date and datetime rendering. In some locales and widget combinations, 
-                the year may be omitted from the displayed value. This module patches the formatter at runtime so the year is always present.
-            </p>
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 20px; margin-bottom: 30px; text-align: center;">What it does</h3>
         </div>
         <div class="oe_span4">
-            <div class="oe_feature" style="padding: 30px 25px; text-align: center; background: rgba(255, 255, 255, 0.1); border-radius: 12px; border-left: 4px solid #fbbf24; transition: transform 0.3s ease;">
-                <div style="font-size: 2.5em; margin-bottom: 15px;">📅</div>
-                <h4 style="color: #fbbf24; font-weight: 700; margin-bottom: 12px; font-size: 1.2em;">Always Show Year</h4>
-                <p style="color: #ffffff; margin: 0;">Ensures localized date and datetime strings include the year in all formats.</p>
+            <div style="text-align: center; padding: 20px 15px;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 10px; font-size: 16px;">Always Show Year</h4>
+                <p style="color: #666; font-size: 14px; line-height: 1.6;">Ensures localized date and datetime strings include the year in all formats.</p>
             </div>
         </div>
         <div class="oe_span4">
-            <div class="oe_feature" style="padding: 30px 25px; text-align: center; background: rgba(255, 255, 255, 0.1); border-radius: 12px; border-left: 4px solid #ec4899; transition: transform 0.3s ease;">
-                <div style="font-size: 2.5em; margin-bottom: 15px;">⚙️</div>
-                <h4 style="color: #ec4899; font-weight: 700; margin-bottom: 12px; font-size: 1.2em;">Backend Only</h4>
-                <p style="color: #ffffff; margin: 0;">Applies in the backend web assets bundle. No impact on user data or API.</p>
+            <div style="text-align: center; padding: 20px 15px;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 10px; font-size: 16px;">Backend Only</h4>
+                <p style="color: #666; font-size: 14px; line-height: 1.6;">Applies in the backend web assets bundle. No impact on user data or API.</p>
             </div>
         </div>
         <div class="oe_span4">
-            <div class="oe_feature" style="padding: 30px 25px; text-align: center; background: rgba(255, 255, 255, 0.1); border-radius: 12px; border-left: 4px solid #06b6d4; transition: transform 0.3s ease;">
-                <div style="font-size: 2.5em; margin-bottom: 15px;">🔒</div>
-                <h4 style="color: #06b6d4; font-weight: 700; margin-bottom: 12px; font-size: 1.2em;">Safe & Clean</h4>
-                <p style="color: #ffffff; margin: 0;">Leaves original format objects untouched by using a shallow copy.</p>
+            <div style="text-align: center; padding: 20px 15px;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 10px; font-size: 16px;">Safe & Clean</h4>
+                <p style="color: #666; font-size: 14px; line-height: 1.6;">Leaves original format objects untouched by using a shallow copy.</p>
             </div>
         </div>
     </div>
@@ -51,15 +40,14 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #2563eb; font-size: 1.8em; margin-bottom: 30px;">How it works</h3>
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 20px; margin-bottom: 20px; text-align: center;">How it works</h3>
         </div>
         <div class="oe_span12">
-            <p style="font-size: 1.05em; color: #1f2937; margin-bottom: 20px;">
-                The module overrides Luxon's <strong>DateTime.toLocaleString()</strong> in the browser. When Odoo passes a format object 
-                without a year, the patch adds <strong>year: 'numeric'</strong> before delegating back to the original formatter.
+            <p style="font-size: 14px; color: #666; text-align: center; line-height: 1.7; margin-bottom: 15px;">
+                The module overrides Luxon's <strong>DateTime.toLocaleString()</strong> in the browser. When Odoo passes a format object without a year, the patch adds <strong>year: 'numeric'</strong> before delegating back to the original formatter.
             </p>
-            <div style="background: #dbeafe; border-left: 4px solid #2563eb; padding: 16px 20px; border-radius: 4px; margin: 20px 0;">
-                <p style="margin: 0; color: #1e3a8a;">
+            <div style="background: #f0f9ff; border-left: 4px solid #2563eb; padding: 15px 18px; border-radius: 4px;">
+                <p style="margin: 0; color: #1e40af; font-size: 13px;">
                     <strong>Note:</strong> This is a display-level fix only. It does not modify stored dates, business logic, or server-side values.
                 </p>
             </div>
@@ -67,17 +55,15 @@
     </div>
 </section>
 
-<section class="oe_container" style="background: linear-gradient(to bottom, #f8f9fa, #ffffff); padding: 60px 0; margin: 40px 0;">
+<section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #2563eb; font-size: 2em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">🚀 Key Features</h3>
-            <div style="height: 3px; background: linear-gradient(90deg, #2563eb, #1e40af); width: 80px; margin: 0 auto 30px;"></div>
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 20px; margin-bottom: 30px; text-align: center;">Key Features</h3>
         </div>
         <div class="oe_span6">
-            <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 30px; border-radius: 12px; border-left: 5px solid #2563eb; position: relative;">
-                <div style="position: absolute; top: -15px; left: 30px; background: #2563eb; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8em;">📦</div>
-                <h4 style="color: #1e40af; font-weight: 700; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Installation</h4>
-                <ul style="color: #1e40af; line-height: 2; margin: 0; padding-left: 20px; font-weight: 500;">
+            <div style="padding: 25px;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 15px; font-size: 16px;">Installation</h4>
+                <ul style="color: #666; line-height: 1.8; margin: 0; padding-left: 20px; font-size: 14px;">
                     <li>Add the module to your Odoo addons path</li>
                     <li>Update the app list</li>
                     <li>Install <strong>Web datetime year patch</strong></li>
@@ -86,10 +72,9 @@
             </div>
         </div>
         <div class="oe_span6">
-            <div style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); padding: 30px; border-radius: 12px; border-left: 5px solid #ec4899; position: relative;">
-                <div style="position: absolute; top: -15px; left: 30px; background: #ec4899; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8em;">✓</div>
-                <h4 style="color: #831843; font-weight: 700; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Requirements</h4>
-                <ul style="color: #831843; line-height: 2; margin: 0; padding-left: 20px; font-weight: 500;">
+            <div style="padding: 25px;">
+                <h4 style="color: #2563eb; font-weight: 600; margin-bottom: 15px; font-size: 16px;">Requirements</h4>
+                <ul style="color: #666; line-height: 1.8; margin: 0; padding-left: 20px; font-size: 14px;">
                     <li><strong>Odoo 19.0</strong></li>
                     <li><strong>Web</strong> module (built-in)</li>
                     <li>No additional dependencies</li>
@@ -103,30 +88,25 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #2563eb; font-size: 1.8em; margin-bottom: 20px;">Technical Details</h3>
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 20px; margin-bottom: 20px; text-align: center;">Technical Details</h3>
         </div>
         <div class="oe_span12 text-center">
-            <p style="font-size: 1.05em; color: #5b6472;">
-                The patch is implemented clean and minimal. It intercepts Luxon's formatter only when needed, 
-                ensuring no performance impact or side effects. Perfect for projects where keeping the year 
-                visible across all date displays improves clarity in record lists, forms, and reporting.
+            <p style="font-size: 14px; color: #666; line-height: 1.7;">
+                The patch is implemented clean and minimal. It intercepts Luxon's formatter only when needed, ensuring no performance impact or side effects. Perfect for projects where keeping the year visible across all date displays improves clarity in record lists, forms, and reporting.
             </p>
         </div>
     </div>
 </section>
 
-<section class="oe_container" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); padding: 80px 0; margin: 40px 0; text-align: center; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-    <div style="position: absolute; bottom: -30px; left: -60px; width: 250px; height: 250px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
-    <div class="oe_row oe_spaced" style="position: relative; z-index: 1;">
+<section class="oe_container">
+    <div class="oe_row oe_spaced text-center">
         <div class="oe_span12">
-            <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 15px; text-transform: uppercase; font-weight: 800; letter-spacing: 1.5px;">❓Questions or Need Help?</h3>
-            <div style="height: 4px; background: rgba(255,255,255,0.3); width: 100px; margin: 0 auto 30px;"></div>
-            <p style="color: rgba(255,255,255,0.95); font-size: 1.1em; margin-bottom: 35px; line-height: 1.8; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Have questions? Want to report an issue? Contact support or visit the author's website for more information.
+            <h3 class="oe_slogan" style="color: #2563eb; font-size: 20px; margin-bottom: 15px;">Need Help?</h3>
+            <p style="color: #666; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">
+                Have questions or need support? Contact the author for assistance.
             </p>
-            <a href="mailto:sanjanatrishan@gmail.com" style="display: inline-block; padding: 16px 40px; background: #ffffff; color: #667eea; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.05em; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                📧 Contact Support Now
+            <a href="mailto:sanjanatrishan@gmail.com" style="display: inline-block; padding: 10px 30px; background: #2563eb; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 14px;">
+                Contact Support
             </a>
         </div>
     </div>

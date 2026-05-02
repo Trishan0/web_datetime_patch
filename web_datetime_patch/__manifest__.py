@@ -8,6 +8,7 @@
     "website": "https://trishanfernando.com/",
     "depends": ["web"],
     "data": [],
+    "images": ['static/description/banner.png'],
     "assets": {
         "web.assets_backend": [
             "web_datetime_patch/static/src/js/patch_keep_year.js"
