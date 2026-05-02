@@ -1,10 +1,11 @@
 {
     "name": "Web datetime year patch",
     "version": "1.0",
-    "category": "Hidden",
+    "category": "Tools",
     "summary": "Ensure year is always shown for localized dates/datetimes in the web client",
     "description": "Small runtime patch: forces year to be included in localized date/datetime strings",
-    "author": "Patch",
+    "author": "Trishan Fernando",
+    "website": "https://trishanfernando.com/",
     "depends": ["web"],
     "data": [],
     "assets": {
